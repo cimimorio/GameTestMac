@@ -126,7 +126,9 @@
 					NSLog(@"接收:%@",resultstring);
 					[self.dataArr addObject:resultstring];
 					[self.tableView beginUpdates];
-				
+					NSIndexSet *set = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];
+					[self.tableView insertRowsAtIndexes:set withAnimation:NSTableViewAnimationSlideDown];
+					[self.tableView scrollRowToVisible:self.dataArr.count-1];
 					[self.tableView endUpdates];
 					//
 				});
@@ -154,6 +156,12 @@
 	return self.dataArr.count;
 }
 
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+	NSTableCellView *cell = [tableView makeViewWithIdentifier:@"Cell" owner:nil];
+	NSString *msg = [self.dataArr objectAtIndex:row];
+	[cell.textField setStringValue:msg];
+	return cell;
+}
 
 - (void)setRepresentedObject:(id)representedObject {
 	[super setRepresentedObject:representedObject];

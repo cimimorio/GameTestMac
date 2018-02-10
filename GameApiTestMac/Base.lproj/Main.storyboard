@@ -707,17 +707,51 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zmk-oj-l3z">
+                                <rect key="frame" x="56" y="46" width="138" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="8w0-MJ-0Ek"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Reset stream" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Um2-Lf-dc2">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetStreamBtnAction:" target="XfG-lQ-9wD" id="VE0-SH-hSS"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-BW-vue">
+                                <rect key="frame" x="320" y="46" width="70" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="t1o-8f-DnH"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="send" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c2X-4H-kTp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="sendBtnAcion:" target="XfG-lQ-9wD" id="e4d-db-fDU"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R12-RE-ts7">
+                                <rect key="frame" x="62" y="23" width="344" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="IPe-mV-VGp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C6-Bg-3To">
-                                <rect key="frame" x="0.0" y="94" width="480" height="176"/>
+                                <rect key="frame" x="0.0" y="74" width="480" height="276"/>
                                 <clipView key="contentView" id="GhU-co-omk">
-                                    <rect key="frame" x="1" y="1" width="478" height="174"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="274"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Zfw-Zt-eSa">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="174"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -760,11 +794,8 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="176" id="v9c-7W-Syv"/>
-                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XHq-mp-Fma">
-                                    <rect key="frame" x="1" y="159" width="439" height="16"/>
+                                    <rect key="frame" x="1" y="159" width="388" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="WOz-Z4-3iz">
@@ -772,52 +803,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zmk-oj-l3z">
-                                <rect key="frame" x="56" y="46" width="138" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="8w0-MJ-0Ek"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="Reset stream" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Um2-Lf-dc2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="resetStreamBtnAction:" target="XfG-lQ-9wD" id="VE0-SH-hSS"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-BW-vue">
-                                <rect key="frame" x="320" y="46" width="70" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="t1o-8f-DnH"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="send" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c2X-4H-kTp">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="sendBtnAcion:" target="XfG-lQ-9wD" id="e4d-db-fDU"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R12-RE-ts7">
-                                <rect key="frame" x="62" y="23" width="344" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="IPe-mV-VGp">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6C6-Bg-3To" secondAttribute="trailing" id="2TP-if-Lgt"/>
-                            <constraint firstItem="6C6-Bg-3To" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="8bO-lZ-MeT"/>
+                            <constraint firstItem="6C6-Bg-3To" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="6Nz-ak-G2w"/>
                             <constraint firstItem="ffC-BW-vue" firstAttribute="top" secondItem="Zmk-oj-l3z" secondAttribute="top" id="AYR-hy-wZp"/>
                             <constraint firstItem="R12-RE-ts7" firstAttribute="top" secondItem="Zmk-oj-l3z" secondAttribute="bottom" constant="8" id="Gh7-WV-ASw"/>
                             <constraint firstItem="ffC-BW-vue" firstAttribute="leading" secondItem="Zmk-oj-l3z" secondAttribute="trailing" constant="138" id="PGo-b0-QK4"/>
+                            <constraint firstAttribute="trailing" secondItem="6C6-Bg-3To" secondAttribute="trailing" id="PXM-Gh-zhA"/>
                             <constraint firstItem="Zmk-oj-l3z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="62" id="SaU-Na-q4d"/>
+                            <constraint firstItem="6C6-Bg-3To" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZtQ-8j-6ZM"/>
                             <constraint firstAttribute="bottom" secondItem="R12-RE-ts7" secondAttribute="bottom" constant="23" id="bMA-sf-EoT"/>
                             <constraint firstAttribute="trailing" secondItem="R12-RE-ts7" secondAttribute="trailing" constant="74" id="hRR-Yo-sGV"/>
-                            <constraint firstItem="6C6-Bg-3To" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="l94-Ip-SYu"/>
                             <constraint firstItem="R12-RE-ts7" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="62" id="sFL-LZ-Qvu"/>
+                            <constraint firstItem="Zmk-oj-l3z" firstAttribute="top" secondItem="6C6-Bg-3To" secondAttribute="bottom" id="x6S-n0-RyX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -827,7 +825,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="782"/>
         </scene>
     </scenes>
 </document>
