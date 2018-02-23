@@ -25,6 +25,7 @@
 		18006F77202E8CDE008D3CE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18006F78202E8CDE008D3CE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18006F7A202E8CDE008D3CE5 /* GameApiTestMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameApiTestMac.entitlements; sourceTree = "<group>"; };
+		184C1B52203FA27E00BDB7A1 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 				18006F6D202E8CDE008D3CE5 /* AppDelegate.m */,
 				18006F6F202E8CDE008D3CE5 /* ViewController.h */,
 				18006F70202E8CDE008D3CE5 /* ViewController.m */,
+				184C1B52203FA27E00BDB7A1 /* Common.h */,
 				18006F72202E8CDE008D3CE5 /* Assets.xcassets */,
 				18006F74202E8CDE008D3CE5 /* Main.storyboard */,
 				18006F77202E8CDE008D3CE5 /* Info.plist */,

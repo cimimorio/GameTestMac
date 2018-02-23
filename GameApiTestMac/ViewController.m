@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Common.h"
 
 @interface ViewController()<NSTableViewDelegate,NSTableViewDataSource,NSStreamDelegate>
 {
@@ -48,6 +49,40 @@
 	[self startSocket];
 }
 
+- (IBAction)createGameBtnAction:(id)sender {
+	NSString *playerId = @"cimimorio";
+	NSString *api = [NSString stringWithFormat:@"%@%@",kCreateGameApi,playerId];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:api]];
+	[request setHTTPMethod:@"GET"];
+	NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSString *result = nil;
+			if (error) {
+				NSLog(@"%@",error);
+				result = [error description];
+			}else{
+				NSError *err;
+				result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+			}
+			if (result == nil) {
+				return;
+			}
+			NSLog(@"%@",result);
+			[self.dataArr addObject:result];
+			[self.tableView beginUpdates];
+			NSIndexSet *set = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];
+			[self.tableView insertRowsAtIndexes:set withAnimation:NSTableViewAnimationSlideDown];
+			[self.tableView scrollRowToVisible:self.dataArr.count-1];
+			[self.tableView endUpdates];
+		});
+		
+	}];
+	[task resume];
+}
+
+- (IBAction)addGameAction:(id)sender {
+}
+
 - (void)startSocket{
 	self.socketThread = [[NSThread alloc] initWithTarget:self selector:@selector(initSockect) object:nil];
 	[self.socketThread start];
@@ -68,7 +103,7 @@
 
 - (void)initSockect{
 	NSString *host = @"127.0.0.1";
-	int port = 8282;
+	int port = 8080;
 	
 	CFReadStreamRef read_s;
 	CFWriteStreamRef write_s;

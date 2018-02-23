@@ -707,7 +707,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="484"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zmk-oj-l3z">
@@ -745,13 +745,13 @@
                                 </textFieldCell>
                             </textField>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C6-Bg-3To">
-                                <rect key="frame" x="0.0" y="74" width="480" height="276"/>
+                                <rect key="frame" x="0.0" y="159" width="480" height="325"/>
                                 <clipView key="contentView" id="GhU-co-omk">
-                                    <rect key="frame" x="1" y="1" width="478" height="274"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="323"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Zfw-Zt-eSa">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="323"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -774,9 +774,8 @@
                                                             <rect key="frame" x="1" y="1" width="475" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6X-Ah-8c9">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Y6X-Ah-8c9">
                                                                     <rect key="frame" x="0.0" y="0.0" width="475" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Kxc-jf-snw">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -784,6 +783,11 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Y6X-Ah-8c9" firstAttribute="centerY" secondItem="kv8-nN-eMb" secondAttribute="centerY" id="ukc-oa-YoN"/>
+                                                                <constraint firstItem="Y6X-Ah-8c9" firstAttribute="leading" secondItem="kv8-nN-eMb" secondAttribute="leading" constant="2" id="v3o-v3-735"/>
+                                                                <constraint firstItem="Y6X-Ah-8c9" firstAttribute="centerX" secondItem="kv8-nN-eMb" secondAttribute="centerX" id="vC3-kd-uOs"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="Y6X-Ah-8c9" id="BAT-VP-9de"/>
                                                             </connections>
@@ -803,19 +807,57 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKj-PW-t6I">
+                                <rect key="frame" x="32" y="95" width="116" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="create game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fte-Np-lGz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="createGameBtnAction:" target="XfG-lQ-9wD" id="IrS-yr-DZF"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="snU-G1-Mfh">
+                                <rect key="frame" x="160" y="95" width="101" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="add game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EeD-0X-SW4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addGameAction:" target="XfG-lQ-9wD" id="asL-FU-sKH"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g8q-B2-4RA">
+                                <rect key="frame" x="353" y="95" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZSf-cT-3BX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kw2-yA-Hlj">
+                                <rect key="frame" x="261" y="95" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aCc-CJ-cCA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="6C6-Bg-3To" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="6Nz-ak-G2w"/>
+                            <constraint firstItem="6C6-Bg-3To" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="1yp-B4-v5e"/>
                             <constraint firstItem="ffC-BW-vue" firstAttribute="top" secondItem="Zmk-oj-l3z" secondAttribute="top" id="AYR-hy-wZp"/>
                             <constraint firstItem="R12-RE-ts7" firstAttribute="top" secondItem="Zmk-oj-l3z" secondAttribute="bottom" constant="8" id="Gh7-WV-ASw"/>
                             <constraint firstItem="ffC-BW-vue" firstAttribute="leading" secondItem="Zmk-oj-l3z" secondAttribute="trailing" constant="138" id="PGo-b0-QK4"/>
-                            <constraint firstAttribute="trailing" secondItem="6C6-Bg-3To" secondAttribute="trailing" id="PXM-Gh-zhA"/>
                             <constraint firstItem="Zmk-oj-l3z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="62" id="SaU-Na-q4d"/>
-                            <constraint firstItem="6C6-Bg-3To" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZtQ-8j-6ZM"/>
                             <constraint firstAttribute="bottom" secondItem="R12-RE-ts7" secondAttribute="bottom" constant="23" id="bMA-sf-EoT"/>
                             <constraint firstAttribute="trailing" secondItem="R12-RE-ts7" secondAttribute="trailing" constant="74" id="hRR-Yo-sGV"/>
+                            <constraint firstAttribute="trailing" secondItem="6C6-Bg-3To" secondAttribute="trailing" id="pOx-jj-fjq"/>
                             <constraint firstItem="R12-RE-ts7" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="62" id="sFL-LZ-Qvu"/>
-                            <constraint firstItem="Zmk-oj-l3z" firstAttribute="top" secondItem="6C6-Bg-3To" secondAttribute="bottom" id="x6S-n0-RyX"/>
+                            <constraint firstItem="6C6-Bg-3To" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="wIy-ra-8nG"/>
+                            <constraint firstItem="Zmk-oj-l3z" firstAttribute="top" secondItem="6C6-Bg-3To" secondAttribute="bottom" constant="85" id="ysI-nu-3tF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -825,7 +867,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="782"/>
+            <point key="canvasLocation" x="75" y="849"/>
         </scene>
     </scenes>
 </document>
