@@ -158,6 +158,9 @@
 						}
 					}
 					NSString *resultstring = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
+					if ([resultstring containsString:@"ping"]) {
+						return;
+					}
 					NSLog(@"接收:%@",resultstring);
 					[self.dataArr addObject:resultstring];
 					[self.tableView beginUpdates];
