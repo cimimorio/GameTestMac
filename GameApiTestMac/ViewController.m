@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Common.h"
+#import "PlayerView.h"
 
 @interface ViewController()<NSTableViewDelegate,NSTableViewDataSource,NSStreamDelegate>
 {
@@ -17,10 +18,23 @@
 }
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *textField;
+@property (weak) IBOutlet PlayerView *pv1;
+@property (weak) IBOutlet PlayerView *pv2;
+@property (weak) IBOutlet PlayerView *pv3;
+@property (weak) IBOutlet PlayerView *pv4;
+@property (weak) IBOutlet PlayerView *pv5;
+@property (weak) IBOutlet PlayerView *pv6;
+@property (weak) IBOutlet PlayerView *pv7;
+@property (weak) IBOutlet PlayerView *pv8;
 
 @property (strong) NSMutableArray *dataArr;
 
 @property (strong) NSThread *socketThread;
+
+@property (copy) NSString *userid;
+@property (copy) NSString *roomid;
+
+@property (strong) NSDictionary *mainData;
 
 @end
 
@@ -57,18 +71,24 @@
 	NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			NSString *result = nil;
+			NSDictionary *resultDic = nil;
 			if (error) {
 				NSLog(@"%@",error);
 				result = [error description];
 			}else{
 				NSError *err;
-				result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+				resultDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
 			}
-			if (result == nil) {
+			if (resultDic == nil) {
 				return;
 			}
-			NSLog(@"%@",result);
-			[self.dataArr addObject:result];
+			if (![resultDic[@"code"] isEqual:@0]) {
+				NSLog(@".......code:%@",resultDic[@"code"]);
+				return;
+			}
+			NSLog(@"%@",resultDic[@"data"]);
+			self.mainData = resultDic[@"data"];
+			[self.dataArr addObject:[NSString stringWithFormat:@"%@",resultDic]];
 			[self.tableView beginUpdates];
 			NSIndexSet *set = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];
 			[self.tableView insertRowsAtIndexes:set withAnimation:NSTableViewAnimationSlideDown];
@@ -81,6 +101,37 @@
 }
 
 - (IBAction)addGameAction:(id)sender {
+	
+}
+
+- (void)reloadData{
+	if (!self.userid || !self.roomid) {
+		NSLog(@"-----room:%@-----user:%@",self.roomid,self.userid);
+		return;
+	}
+	NSString *api = [NSString stringWithFormat:@"%@%@/%@",kDataApi,self.userid,self.superclass];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:api]];
+	[request setHTTPMethod:@"GET"];
+	NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			if (error) {
+				NSLog(@"0-------%@",error);
+				return;
+			}
+			NSError *err;
+			NSDictionary *res = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
+			if (err) {
+				NSLog(@"1------%@",err);
+				return;
+			}
+			if (![res[@"code"] isEqual:@0]) {
+				NSLog(@"2------%@",res);
+				return;
+			}
+			NSLog(@"3----%@",res[@"data"]);
+		});
+	}];
+	[task resume];
 }
 
 - (void)startSocket{
@@ -162,6 +213,10 @@
 						return;
 					}
 					NSLog(@"接收:%@",resultstring);
+					if ([resultstring containsString:@"reloaddata"]) {
+						[self reloadData];
+					}
+					
 					[self.dataArr addObject:resultstring];
 					[self.tableView beginUpdates];
 					NSIndexSet *set = [NSIndexSet indexSetWithIndex:self.dataArr.count-1];

@@ -12,6 +12,8 @@
 		18006F73202E8CDE008D3CE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18006F72202E8CDE008D3CE5 /* Assets.xcassets */; };
 		18006F76202E8CDE008D3CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18006F74202E8CDE008D3CE5 /* Main.storyboard */; };
 		18006F79202E8CDE008D3CE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18006F78202E8CDE008D3CE5 /* main.m */; };
+		184C1B582044089500BDB7A1 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C1B572044089500BDB7A1 /* PlayerView.m */; };
+		184C1B5B2044094300BDB7A1 /* TaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184C1B5A2044094300BDB7A1 /* TaskView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		18006F78202E8CDE008D3CE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18006F7A202E8CDE008D3CE5 /* GameApiTestMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameApiTestMac.entitlements; sourceTree = "<group>"; };
 		184C1B52203FA27E00BDB7A1 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		184C1B562044089500BDB7A1 /* PlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		184C1B572044089500BDB7A1 /* PlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		184C1B592044094300BDB7A1 /* TaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskView.h; sourceTree = "<group>"; };
+		184C1B5A2044094300BDB7A1 /* TaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 				18006F6F202E8CDE008D3CE5 /* ViewController.h */,
 				18006F70202E8CDE008D3CE5 /* ViewController.m */,
 				184C1B52203FA27E00BDB7A1 /* Common.h */,
+				184C1B562044089500BDB7A1 /* PlayerView.h */,
+				184C1B572044089500BDB7A1 /* PlayerView.m */,
+				184C1B592044094300BDB7A1 /* TaskView.h */,
+				184C1B5A2044094300BDB7A1 /* TaskView.m */,
 				18006F72202E8CDE008D3CE5 /* Assets.xcassets */,
 				18006F74202E8CDE008D3CE5 /* Main.storyboard */,
 				18006F77202E8CDE008D3CE5 /* Info.plist */,
@@ -144,7 +154,9 @@
 			files = (
 				18006F71202E8CDE008D3CE5 /* ViewController.m in Sources */,
 				18006F79202E8CDE008D3CE5 /* main.m in Sources */,
+				184C1B5B2044094300BDB7A1 /* TaskView.m in Sources */,
 				18006F6E202E8CDE008D3CE5 /* AppDelegate.m in Sources */,
+				184C1B582044089500BDB7A1 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
